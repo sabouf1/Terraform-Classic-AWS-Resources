@@ -1,0 +1,496 @@
+said:~/environment/Terraform $ terraform apply -auto-approve
+aws_kms_key.my_kms_key: Refreshing state... [id=73c3a2c6-3409-4963-b776-c4680960d26e]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_autoscaling_group.myasg will be created
+  + resource "aws_autoscaling_group" "myasg" {
+      + arn                              = (known after apply)
+      + availability_zones               = (known after apply)
+      + default_cooldown                 = (known after apply)
+      + desired_capacity                 = 1
+      + force_delete                     = false
+      + force_delete_warm_pool           = false
+      + health_check_grace_period        = 300
+      + health_check_type                = (known after apply)
+      + id                               = (known after apply)
+      + ignore_failed_scaling_activities = false
+      + load_balancers                   = (known after apply)
+      + max_size                         = 1
+      + metrics_granularity              = "1Minute"
+      + min_size                         = 1
+      + name                             = (known after apply)
+      + name_prefix                      = (known after apply)
+      + predicted_capacity               = (known after apply)
+      + protect_from_scale_in            = false
+      + service_linked_role_arn          = (known after apply)
+      + target_group_arns                = (known after apply)
+      + vpc_zone_identifier              = [
+          + "subnet-016422784058a41f5",
+          + "subnet-0d33177353c6099a5",
+        ]
+      + wait_for_capacity_timeout        = "10m"
+      + warm_pool_size                   = (known after apply)
+
+      + launch_template {
+          + id      = (known after apply)
+          + name    = (known after apply)
+          + version = "$Latest"
+        }
+    }
+
+  # aws_db_instance.myrds will be created
+  + resource "aws_db_instance" "myrds" {
+      + address                               = (known after apply)
+      + allocated_storage                     = 20
+      + apply_immediately                     = false
+      + arn                                   = (known after apply)
+      + auto_minor_version_upgrade            = true
+      + availability_zone                     = (known after apply)
+      + backup_retention_period               = (known after apply)
+      + backup_target                         = (known after apply)
+      + backup_window                         = (known after apply)
+      + ca_cert_identifier                    = (known after apply)
+      + character_set_name                    = (known after apply)
+      + copy_tags_to_snapshot                 = false
+      + db_name                               = "metrodb"
+      + db_subnet_group_name                  = (known after apply)
+      + delete_automated_backups              = true
+      + endpoint                              = (known after apply)
+      + engine                                = "mysql"
+      + engine_version                        = "5.7"
+      + engine_version_actual                 = (known after apply)
+      + hosted_zone_id                        = (known after apply)
+      + id                                    = (known after apply)
+      + identifier                            = (known after apply)
+      + identifier_prefix                     = (known after apply)
+      + instance_class                        = "db.t3.micro"
+      + iops                                  = (known after apply)
+      + kms_key_id                            = (known after apply)
+      + latest_restorable_time                = (known after apply)
+      + license_model                         = (known after apply)
+      + listener_endpoint                     = (known after apply)
+      + maintenance_window                    = (known after apply)
+      + master_user_secret                    = (known after apply)
+      + master_user_secret_kms_key_id         = (known after apply)
+      + monitoring_interval                   = 0
+      + monitoring_role_arn                   = (known after apply)
+      + multi_az                              = true
+      + nchar_character_set_name              = (known after apply)
+      + network_type                          = (known after apply)
+      + option_group_name                     = (known after apply)
+      + parameter_group_name                  = "default.mysql5.7"
+      + password                              = (sensitive value)
+      + performance_insights_enabled          = false
+      + performance_insights_kms_key_id       = (known after apply)
+      + performance_insights_retention_period = (known after apply)
+      + port                                  = (known after apply)
+      + publicly_accessible                   = false
+      + replica_mode                          = (known after apply)
+      + replicas                              = (known after apply)
+      + resource_id                           = (known after apply)
+      + skip_final_snapshot                   = true
+      + snapshot_identifier                   = (known after apply)
+      + status                                = (known after apply)
+      + storage_throughput                    = (known after apply)
+      + storage_type                          = (known after apply)
+      + tags_all                              = (known after apply)
+      + timezone                              = (known after apply)
+      + username                              = "admin"
+      + vpc_security_group_ids                = (known after apply)
+    }
+
+  # aws_db_subnet_group.rdssubnetgroup1 will be created
+  + resource "aws_db_subnet_group" "rdssubnetgroup1" {
+      + arn                     = (known after apply)
+      + description             = "Managed by Terraform"
+      + id                      = (known after apply)
+      + name                    = "rdssubnetgroup1"
+      + name_prefix             = (known after apply)
+      + subnet_ids              = [
+          + "subnet-016422784058a41f5",
+          + "subnet-0d33177353c6099a5",
+        ]
+      + supported_network_types = (known after apply)
+      + tags                    = {
+          + "Name" = "My DB subnet group"
+        }
+      + tags_all                = {
+          + "Name" = "My DB subnet group"
+        }
+      + vpc_id                  = (known after apply)
+    }
+
+  # aws_glue_job.my_glue_job will be created
+  + resource "aws_glue_job" "my_glue_job" {
+      + arn          = (known after apply)
+      + glue_version = (known after apply)
+      + id           = (known after apply)
+      + max_capacity = (known after apply)
+      + name         = "example"
+      + role_arn     = (known after apply)
+      + tags_all     = (known after apply)
+      + timeout      = (known after apply)
+
+      + command {
+          + name            = "glueetl"
+          + python_version  = (known after apply)
+          + runtime         = (known after apply)
+          + script_location = "s3://saidexammetrocollege2023/script.py"
+        }
+    }
+
+  # aws_iam_policy.sample_policy will be created
+  + resource "aws_iam_policy" "sample_policy" {
+      + arn         = (known after apply)
+      + description = "A sample IAM policy"
+      + id          = (known after apply)
+      + name        = "sample-policy"
+      + name_prefix = (known after apply)
+      + path        = "/"
+      + policy      = (known after apply)
+      + policy_id   = (known after apply)
+      + tags_all    = (known after apply)
+    }
+
+  # aws_iam_role.Said_role will be created
+  + resource "aws_iam_role" "Said_role" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "glue.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "my-iam-role"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + tags_all              = (known after apply)
+      + unique_id             = (known after apply)
+    }
+
+  # aws_iam_role_policy_attachment.sample_policy_attachment will be created
+  + resource "aws_iam_role_policy_attachment" "sample_policy_attachment" {
+      + id         = (known after apply)
+      + policy_arn = (known after apply)
+      + role       = "my-iam-role"
+    }
+
+  # aws_key_pair.ec2KeyPair1 will be created
+  + resource "aws_key_pair" "ec2KeyPair1" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "deployer-key"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + key_type        = (known after apply)
+      + public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5O0Hd4IsPZ9PTFJSxZoNUtOWzPNp+nZJnmyrocdb3/bZjHB51o3qswxViWyTh0SnjrWHZASZ5QtRNZ80j0Xf2g50P5bMAlvg7x5wEEg7BEkovqCDSuZ24CRv1rj3AMChDHbdidios17MejcZarizCo88gZ88hwP8fO2Azj7MxcXAJLJWsrbmfhPM4rKPsORNkijs90fKIFj/Kld6C9AwlHTvSMYdDGvrwGkKmQ8XAtHSlu6gPQPuh0XpW4ZEkfzMWNaMY8S5WMR7Jl0OFMqy26dR/ULwUa3oF3NDadHMA/Hn3WYGey/I2oD7BtqoYr5ph3At7YZ53cn8XQ5KCf9IN ec2-user@ip-172-31-13-249.us-east-2.compute.internal"
+      + tags_all        = (known after apply)
+    }
+
+  # aws_launch_template.ASGLaunchTemplate will be created
+  + resource "aws_launch_template" "ASGLaunchTemplate" {
+      + arn                    = (known after apply)
+      + default_version        = (known after apply)
+      + id                     = (known after apply)
+      + image_id               = "ami-00103992c587e27cc"
+      + instance_type          = "t2.micro"
+      + key_name               = (known after apply)
+      + latest_version         = (known after apply)
+      + name                   = "MyASGLaunchTemplate"
+      + name_prefix            = (known after apply)
+      + tags_all               = (known after apply)
+      + vpc_security_group_ids = (known after apply)
+
+      + tag_specifications {
+          + resource_type = "instance"
+          + tags          = {
+              + "Name" = "Web"
+            }
+        }
+    }
+
+  # aws_lb.my_alb will be created
+  + resource "aws_lb" "my_alb" {
+      + arn                                         = (known after apply)
+      + arn_suffix                                  = (known after apply)
+      + desync_mitigation_mode                      = "defensive"
+      + dns_name                                    = (known after apply)
+      + drop_invalid_header_fields                  = false
+      + enable_deletion_protection                  = false
+      + enable_http2                                = true
+      + enable_tls_version_and_cipher_suite_headers = false
+      + enable_waf_fail_open                        = false
+      + enable_xff_client_port                      = false
+      + id                                          = (known after apply)
+      + idle_timeout                                = 60
+      + internal                                    = false
+      + ip_address_type                             = (known after apply)
+      + load_balancer_type                          = "application"
+      + name                                        = "my-alb"
+      + preserve_host_header                        = false
+      + security_groups                             = (known after apply)
+      + subnets                                     = [
+          + "subnet-016422784058a41f5",
+          + "subnet-0d33177353c6099a5",
+        ]
+      + tags_all                                    = (known after apply)
+      + vpc_id                                      = (known after apply)
+      + xff_header_processing_mode                  = "append"
+      + zone_id                                     = (known after apply)
+    }
+
+  # aws_lb_target_group.taregtgroup1 will be created
+  + resource "aws_lb_target_group" "taregtgroup1" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + load_balancing_cross_zone_enabled  = (known after apply)
+      + name                               = "tf-example-lb-tg"
+      + port                               = 80
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "HTTP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "instance"
+      + vpc_id                             = "vpc-0a689659aaceb4efc"
+    }
+
+  # aws_s3_bucket.my_bucket will be created
+  + resource "aws_s3_bucket" "my_bucket" {
+      + acceleration_status         = (known after apply)
+      + acl                         = "public-read"
+      + arn                         = (known after apply)
+      + bucket                      = "saidexammetrocollege2023"
+      + bucket_domain_name          = (known after apply)
+      + bucket_prefix               = (known after apply)
+      + bucket_regional_domain_name = (known after apply)
+      + force_destroy               = false
+      + hosted_zone_id              = (known after apply)
+      + id                          = (known after apply)
+      + object_lock_enabled         = (known after apply)
+      + policy                      = (known after apply)
+      + region                      = (known after apply)
+      + request_payer               = (known after apply)
+      + tags_all                    = (known after apply)
+      + website_domain              = (known after apply)
+      + website_endpoint            = (known after apply)
+    }
+
+  # aws_s3_bucket_object.script will be created
+  + resource "aws_s3_bucket_object" "script" {
+      + acl                    = "private"
+      + bucket                 = (known after apply)
+      + bucket_key_enabled     = (known after apply)
+      + content_type           = (known after apply)
+      + etag                   = "0540c578a3da6d18a6c5e6bc9da78bb9"
+      + force_destroy          = false
+      + id                     = (known after apply)
+      + key                    = "script.py"
+      + kms_key_id             = (known after apply)
+      + server_side_encryption = (known after apply)
+      + source                 = "script.py"
+      + storage_class          = (known after apply)
+      + tags_all               = (known after apply)
+      + version_id             = (known after apply)
+    }
+
+  # aws_security_group.my_security_group will be created
+  + resource "aws_security_group" "my_security_group" {
+      + arn                    = (known after apply)
+      + description            = "Security Group with Port 3306 open for RDS"
+      + egress                 = (known after apply)
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 3306
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 3306
+            },
+        ]
+      + name                   = "my-security-group"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags_all               = (known after apply)
+      + vpc_id                 = "vpc-0a689659aaceb4efc"
+    }
+
+Plan: 14 to add, 0 to change, 0 to destroy.
+aws_lb.my_alb: Creating...
+aws_db_subnet_group.rdssubnetgroup1: Creating...
+aws_key_pair.ec2KeyPair1: Creating...
+aws_iam_role.Said_role: Creating...
+aws_lb_target_group.taregtgroup1: Creating...
+aws_s3_bucket.my_bucket: Creating...
+aws_security_group.my_security_group: Creating...
+aws_db_subnet_group.rdssubnetgroup1: Creation complete after 2s [id=rdssubnetgroup1]
+aws_security_group.my_security_group: Creation complete after 4s [id=sg-0d6941cfbe4602755]
+aws_db_instance.myrds: Creating...
+aws_lb.my_alb: Still creating... [10s elapsed]
+aws_db_instance.myrds: Still creating... [10s elapsed]
+aws_lb.my_alb: Still creating... [20s elapsed]
+aws_db_instance.myrds: Still creating... [20s elapsed]
+aws_lb.my_alb: Still creating... [30s elapsed]
+aws_db_instance.myrds: Still creating... [30s elapsed]
+aws_lb.my_alb: Still creating... [40s elapsed]
+aws_db_instance.myrds: Still creating... [40s elapsed]
+aws_lb.my_alb: Still creating... [50s elapsed]
+aws_db_instance.myrds: Still creating... [50s elapsed]
+aws_lb.my_alb: Still creating... [1m0s elapsed]
+aws_db_instance.myrds: Still creating... [1m0s elapsed]
+aws_lb.my_alb: Still creating... [1m10s elapsed]
+aws_db_instance.myrds: Still creating... [1m10s elapsed]
+aws_lb.my_alb: Still creating... [1m20s elapsed]
+aws_db_instance.myrds: Still creating... [1m20s elapsed]
+aws_lb.my_alb: Still creating... [1m30s elapsed]
+aws_db_instance.myrds: Still creating... [1m30s elapsed]
+aws_lb.my_alb: Still creating... [1m40s elapsed]
+aws_db_instance.myrds: Still creating... [1m40s elapsed]
+aws_lb.my_alb: Still creating... [1m50s elapsed]
+aws_db_instance.myrds: Still creating... [1m50s elapsed]
+aws_lb.my_alb: Still creating... [2m0s elapsed]
+aws_db_instance.myrds: Still creating... [2m0s elapsed]
+aws_lb.my_alb: Still creating... [2m10s elapsed]
+aws_db_instance.myrds: Still creating... [2m10s elapsed]
+aws_lb.my_alb: Creation complete after 2m14s [id=arn:aws:elasticloadbalancing:sa-east-1:411658317626:loadbalancer/app/my-alb/71e783b1ca1ac481]
+aws_db_instance.myrds: Still creating... [2m20s elapsed]
+aws_db_instance.myrds: Still creating... [2m30s elapsed]
+aws_db_instance.myrds: Still creating... [2m40s elapsed]
+aws_db_instance.myrds: Still creating... [2m50s elapsed]
+aws_db_instance.myrds: Still creating... [3m0s elapsed]
+aws_db_instance.myrds: Still creating... [3m10s elapsed]
+aws_db_instance.myrds: Still creating... [3m20s elapsed]
+aws_db_instance.myrds: Still creating... [3m30s elapsed]
+aws_db_instance.myrds: Still creating... [3m40s elapsed]
+aws_db_instance.myrds: Still creating... [3m50s elapsed]
+aws_db_instance.myrds: Still creating... [4m0s elapsed]
+aws_db_instance.myrds: Still creating... [4m10s elapsed]
+aws_db_instance.myrds: Still creating... [4m20s elapsed]
+aws_db_instance.myrds: Still creating... [4m30s elapsed]
+aws_db_instance.myrds: Still creating... [4m40s elapsed]
+aws_db_instance.myrds: Still creating... [4m50s elapsed]
+aws_db_instance.myrds: Still creating... [5m0s elapsed]
+aws_db_instance.myrds: Still creating... [5m10s elapsed]
+aws_db_instance.myrds: Still creating... [5m20s elapsed]
+aws_db_instance.myrds: Still creating... [5m30s elapsed]
+aws_db_instance.myrds: Still creating... [5m40s elapsed]
+aws_db_instance.myrds: Still creating... [5m50s elapsed]
+aws_db_instance.myrds: Still creating... [6m0s elapsed]
+aws_db_instance.myrds: Still creating... [6m10s elapsed]
+aws_db_instance.myrds: Still creating... [6m20s elapsed]
+aws_db_instance.myrds: Still creating... [6m30s elapsed]
+aws_db_instance.myrds: Still creating... [6m40s elapsed]
+aws_db_instance.myrds: Still creating... [6m50s elapsed]
+aws_db_instance.myrds: Still creating... [7m0s elapsed]
+aws_db_instance.myrds: Still creating... [7m10s elapsed]
+aws_db_instance.myrds: Still creating... [7m20s elapsed]
+aws_db_instance.myrds: Still creating... [7m30s elapsed]
+aws_db_instance.myrds: Still creating... [7m40s elapsed]
+aws_db_instance.myrds: Still creating... [7m50s elapsed]
+aws_db_instance.myrds: Still creating... [8m0s elapsed]
+aws_db_instance.myrds: Still creating... [8m10s elapsed]
+aws_db_instance.myrds: Still creating... [8m20s elapsed]
+aws_db_instance.myrds: Still creating... [8m30s elapsed]
+aws_db_instance.myrds: Still creating... [8m40s elapsed]
+aws_db_instance.myrds: Still creating... [8m50s elapsed]
+aws_db_instance.myrds: Still creating... [9m0s elapsed]
+aws_db_instance.myrds: Still creating... [9m10s elapsed]
+aws_db_instance.myrds: Still creating... [9m20s elapsed]
+╷
+│ Warning: Argument is deprecated
+│ 
+│   with aws_s3_bucket.my_bucket,
+│   on main.tf line 9, in resource "aws_s3_bucket" "my_bucket":
+│    9:   acl = "public-read"
+│ 
+│ Use the aws_s3_bucket_acl resource instead
+│ 
+│ (and 4 more similar warnings elsewhere)
+╵
+╷
+│ Warning: Deprecated Resource
+│ 
+│   with aws_s3_bucket_object.script,
+│   on main.tf line 13, in resource "aws_s3_bucket_object" "script":
+│   13: resource "aws_s3_bucket_object" "script" {
+│ 
+│ use the aws_s3_object resource instead
+│ 
+│ (and one more similar warning elsewhere)
+╵
+╷
+│ Error: creating Amazon S3 (Simple Storage) Bucket (saidexammetrocollege2023): InvalidBucketAclWithObjectOwnership: Bucket cannot have ACLs set with ObjectOwnership's BucketOwnerEnforced setting
+│       status code: 400, request id: FJW7095N6YXX6RBW, host id: Vwifm7mpgzOtoTfiRAJtt9I8V7f4JJ7b4cx91qosnzQP49f5zxBZF9alpct1F3lWL19b6j8hjVc=
+│ 
+│   with aws_s3_bucket.my_bucket,
+│   on main.tf line 7, in resource "aws_s3_bucket" "my_bucket":
+│    7: resource "aws_s3_bucket" "my_bucket" {
+│ 
+╵
+╷
+│ Error: creating IAM Role (my-iam-role): InvalidClientTokenId: The security token included in the request is invalid
+│       status code: 403, request id: f7bd7e3c-f2a9-482c-aeef-6c82fd48c6c6
+│ 
+│   with aws_iam_role.Said_role,
+│   on main.tf line 22, in resource "aws_iam_role" "Said_role":
+│   22: resource "aws_iam_role" "Said_role" {
+│ 
+╵
+╷
+│ Error: waiting for RDS DB Instance (terraform-20230928001344808800000001) create: ExpiredToken: The security token included in the request is expired
+│       status code: 403, request id: a421b718-3c6a-4ad7-97d2-c3b09e2b4cb3
+│ 
+│   with aws_db_instance.myrds,
+│   on main.tf line 83, in resource "aws_db_instance" "myrds":
+│   83: resource "aws_db_instance" "myrds" {
+│ 
+╵
+╷
+│ Error: importing EC2 Key Pair (deployer-key): InvalidKeyPair.Duplicate: The keypair already exists
+│       status code: 400, request id: 7303e226-7bd0-4d48-abdf-9a0625e900df
+│ 
+│   with aws_key_pair.ec2KeyPair1,
+│   on main.tf line 122, in resource "aws_key_pair" "ec2KeyPair1":
+│  122: resource "aws_key_pair" "ec2KeyPair1" {
+│ 
+╵
+╷
+│ Error: ELBv2 Target Group (tf-example-lb-tg) already exists
+│ 
+│   with aws_lb_target_group.taregtgroup1,
+│   on main.tf line 143, in resource "aws_lb_target_group" "taregtgroup1":
+│  143: resource "aws_lb_target_group" "taregtgroup1" {
+│ 
