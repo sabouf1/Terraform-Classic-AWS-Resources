@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "my_bucket" {
 resource "aws_s3_bucket_object" "script" {
   bucket = aws_s3_bucket.my_bucket.id
   key    = "script.py"
-  source = "script.py"  # Assuming you have a file named script.py in the same directory as your Terraform configuration
+  source = "script.py"  
   etag   = filemd5("script.py")
 }
 
