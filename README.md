@@ -71,7 +71,7 @@ To use this Terraform configuration, follow these steps:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/sabouf1/Terraform-Template.git
+   git clone https://github.com/sabouf1/Terraform-Classic-AWS-Resources
    cd Terraform-Template
    ```
 
